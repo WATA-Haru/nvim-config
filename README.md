@@ -3,10 +3,16 @@
 ## Location
 ```~/.config/nvim/init.lua```
 
+## Tips
+シンボリックリンクを使用する
+```
+ln -s ~/.config/nvim ./nvim
+```
+
 ## WSL clipboard settings
 windowsのWSL上でnvimを使用する際に%yなどでヤンクした行が、windowsのクリップボードに反映されない事象が起こった
 
-### 解決策
+解決策
 環境: windows11 WSL
 
 1. win32yankのインストール(x64)
