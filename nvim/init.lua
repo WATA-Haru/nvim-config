@@ -19,22 +19,19 @@ vim.g.mapleader = " "
 
 vim.cmd("filetype plugin indent on")
 
--- windows only settings
-if vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1 then
-    vim.opt.clipboard = "unnamed"
-
-    if vim.fn.has("wsl") == 1 then
-        vim.g.clipboard = {
-            name = "win32yank-wsl",
-            copy = {
-                ["+"] = "win32yank.exe -i --crlf",
-                ["*"] = "win32yank.exe -i --crlf"
-            },
-            paste = {
-                ["+"] = "win32yank.exe -o --crlf",
-                ["*"] = "win32yank.exe -o --crlf"
-            },
-            cache_enable = 0,
-        }
-    end
+-- windows wsl only settings 
+-- but if you write if vim.fn.has("win64") == 1 then , system cant use clipboard.
+if vim.fn.has('wsl') == 1 then
+  vim.g.clipboard = {
+  name = "win32yank-wsl",
+  copy = {
+    ["+"] = "win32yank.exe -i --crlf",
+    ["*"] = "win32yank.exe -i --crlf"
+    },
+  paste = {
+    ["+"] = "win32yank.exe -o --crlf",
+    ["*"] = "win32yank.exe -o --crlf"
+    },
+  cache_enable = 0,
+  }
 end
