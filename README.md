@@ -36,19 +36,22 @@ echo $PATH
 5. init.luaの設定
 
 ```init.lua
-vim.opt.clipboard = "unnamed"
-if vim.fn.has("wsl") then
+vim.opt.clipboard = "unnamedplus"
+
+-- windows wsl only settings 
+-- but if you write if vim.fn.has("win64") == 1 then , system cant use clipboard.
+if vim.fn.has('wsl') == 1 then
   vim.g.clipboard = {
-    name = "win32yank-wsl",
-    copy = {
-      ["+"] = "win32yank.exe -i --crlf",
-      ["*"] = "win32yank.exe -i --crlf"
+  name = "win32yank-wsl",
+  copy = {
+    ["+"] = "win32yank.exe -i --crlf",
+    ["*"] = "win32yank.exe -i --crlf"
     },
-    paste = {
-      ["+"] = "win32yank.exe -o --crlf",
-      ["*"] = "win32yank.exe -o --crlf"
+  paste = {
+    ["+"] = "win32yank.exe -o --crlf",
+    ["*"] = "win32yank.exe -o --crlf"
     },
-    cache_enable = 0,
+  cache_enable = 0,
   }
 end
 ```
