@@ -10,7 +10,7 @@ vim.opt.tabstop = 4
 -- 不可視文字の可視化（Tabを[^ ]と表示する）
 vim.opt.list = true
 
-vim.opt.clipboard = "unnamed"
+vim.opt.clipboard = "unnamedplus"
 
 -- ESC to jk
 vim.api.nvim_set_keymap("i", "jk", "<ESC>", { noremap = true })
